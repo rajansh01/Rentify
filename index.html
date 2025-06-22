@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Find your next rental property with Rentify. Safe, Verified Listings with transparent pricing and no hidden fees.">
+    <meta name="keywords" content="rental, property, apartment, house, real estate, rentify">
+    <meta name="author" content="Rentify">
+    <meta property="og:title" content="Rentify - Find Your Next Home">
+    <meta property="og:description"
+        content="Find your perfect rental home with verified listings and transparent pricing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rentify.com">
+    <meta name="theme-color" content="#0096FF">
+    <title>Rentify - Find Your Next Rental Home | Verified Listings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <!-- Skip to Content Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation Bar -->
+    <header class="navbar" role="banner">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Rentify Home">
+                <img src="rentify21.png" alt="">
+                <div class="rentify"><span></span></div>
+            </a>
+
+            <button class="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="menu-icon">
+                    <!-- <i class="fas fa-bars" aria-hidden="true"></i> -->
+                </span>
+            </button>
+
+            <nav class="nav-container" role="navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active" aria-current="page"><i class="fas fa-home"
+                                aria-hidden="true"></i> Home</a></li>
+                    <li><a href="#propertyListing" class="nav-link"><i class="fas fa-list" aria-hidden="true"></i> List
+                            Property</a></li>
+                    <li><a href="#savedFavorites" class="nav-link"><i class="fas fa-heart" aria-hidden="true"></i>
+                            Saved</a></li>
+                    <li><a href="#chat" class="nav-link"><i class="fas fa-comments" aria-hidden="true"></i> Chat</a>
+                    </li>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"
+                                aria-hidden="true"></i>
+                            Login</a>
+                        <a href="register.html" class="btn btn-primary"><i class="fas fa-user-plus"
+                                aria-hidden="true"></i>
+                            Register</a>
+                    </div>
+                </ul>
+
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" role="region" aria-labelledby="hero-heading">
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="hero-heading">Find Your Perfect <span>Rental Home</span> Today</h1>
+                <p class="hero-subtitle">Browse thousands of verified listings with transparent pricing and no hidden
+                    fees</p>
+
+                <div class="search-box" role="search">
+                    <div class="search-tabs" role="tablist">
+                        <button class="tab-btn active" role="tab" aria-selected="true"
+                            aria-controls="rent-tab">Rent</button>
+                        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="buy-tab">Buy</button>
+                        <button class="tab-btn" role="tab" aria-selected="false"
+                            aria-controls="commercial-tab">Commercial</button>
+                    </div>
+                    <form class="search-form" id="search-form" role="search">
+                        <div class="form-group">
+                            <label for="search-location" class="sr-only">Location</label>
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <input type="text" id="search-location" placeholder="Enter city, neighborhood, or address"
+                                aria-label="Search by location">
+                        </div>
+                        <div class="form-group">
+                            <label for="search-beds" class="sr-only">Bedrooms</label>
+                            <i class="fas fa-bed" aria-hidden="true"></i>
+                            <select id="search-beds" aria-label="Number of bedrooms">
+                                <option value="">Any Beds</option>
+                                <option value="1">1+ Beds</option>
+                                <option value="2">2+ Beds</option>
+                                <option value="3">3+ Beds</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="search-price" class="sr-only">Price range</label>
+                            <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+                            <select id="search-price" aria-label="Price range">
+                                <option value="">Any Price</option>
+                                <option value="1000">$1,000+</option>
+                                <option value="2000">$2,000+</option>
+                                <option value="3000">$3,000+</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-search" aria-label="Search properties">
+                            <i class="fas fa-search" aria-hidden="true"></i> Search
+                        </button>
+                    </form>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="badge">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <span>Verified Listings</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>10,000+ Properties</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <span>Trusted by 50,000+ Renters</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Featured Properties -->
+        <section class="featured-properties" aria-labelledby="featured-properties-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="featured-properties-heading">Featured Properties</h2>
+                    <a href="properties.html" class="view-all">View All <i class="fas fa-arrow-right"
+                            aria-hidden="true"></i></a>
+                </div>
+
+                <div class="properties-grid">
+                    <!-- Property Card 1 -->
+                    <article class="property-card" role="article" aria-labelledby="property-1-title">
+                        <div class="property-badge">Featured</div>
+                        <button class="property-favorite" aria-label="Save property">
+                            <i class="far fa-heart" aria-hidden="true"></i>
+                        </button>
+                        <div class="property-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ-YTGpA-_VBflyMGwxpIKNHcE5pl8BmNkbA&s"
+                                alt="Luxury Downtown Apartment with modern interior" loading="lazy">
+                            <div class="property-tag">For Rent</div>
+                        </div>
+                        <div class="property-details">
+                            <h3 id="property-1-title">Luxury Downtown Apartment</h3>
+                            <p class="property-address">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i> 123 Main St, New York, NY
+                            </p>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed" aria-hidden="true"></i> 2 Beds</span>
+                                <span><i class="fas fa-bath" aria-hidden="true"></i> 2 Baths</span>
+                                <span><i class="fas fa-ruler-combined" aria-hidden="true"></i> 1200 sqft</span>
+                            </div>
+                            <div class="property-price">
+                                ₹2,500<span>/month</span>
+                            </div>
+                            <a href="property-detail.html" class="property-link"
+                                aria-label="View details of Luxury Downtown Apartment">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Property Card 2 -->
+                    <article class="property-card" role="article" aria-labelledby="property-2-title">
+                        <button class="property-favorite" aria-label="Save property">
+                            <i class="far fa-heart" aria-hidden="true"></i>
+                        </button>
+                        <div class="property-image">
+                            <img src="https://media.istockphoto.com/id/1393537665/photo/modern-townhouse-design.jpg?s=612x612&w=0&k=20&c=vgQesOXDRzz0UfOZxmUtE-rFe75YgA9GvkKS8eeeumE="
+                                alt="Modern Studio Apartment with minimalist design" loading="lazy">
+                            <div class="property-tag">For Rent</div>
+                        </div>
+                        <div class="property-details">
+                            <h3 id="property-2-title">Modern Studio Apartment</h3>
+                            <p class="property-address">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i> 456 Elm St, Brooklyn, NY
+                            </p>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed" aria-hidden="true"></i> 1 Bed</span>
+                                <span><i class="fas fa-bath" aria-hidden="true"></i> 1 Bath</span>
+                                <span><i class="fas fa-ruler-combined" aria-hidden="true"></i> 700 sqft</span>
+                            </div>
+                            <div class="property-price">
+                                ₹1,800<span>/month</span>
+                            </div>
+                            <a href="property-detail.html" class="property-link"
+                                aria-label="View details of Modern Studio Apartment">View Details</a>
+                        </div>
+                    </article>
+
+                    <!-- Property Card 3 -->
+                    <article class="property-card" role="article" aria-labelledby="property-3-title">
+                        <div class="property-badge">New</div>
+                        <button class="property-favorite" aria-label="Save property">
+                            <i class="far fa-heart" aria-hidden="true"></i>
+                        </button>
+                        <div class="property-image">
+                            <img src="https://5.imimg.com/data5/GG/OM/MY-45059380/pine-wood-residential-villa-500x500.jpeg"
+                                alt="Spacious Family Home with backyard" loading="lazy">
+                            <div class="property-tag">For Rent</div>
+                        </div>
+                        <div class="property-details">
+                            <h3 id="property-3-title">Spacious Family Home</h3>
+                            <p class="property-address">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i> 789 Oak Ave, Queens, NY
+                            </p>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed" aria-hidden="true"></i> 3 Beds</span>
+                                <span><i class="fas fa-bath" aria-hidden="true"></i> 2 Baths</span>
+                                <span><i class="fas fa-ruler-combined" aria-hidden="true"></i> 1800 sqft</span>
+                            </div>
+                            <div class="property-price">
+                                ₹3,200<span>/month</span>
+                            </div>
+                            <a href="property-detail.html" class="property-link"
+                                aria-label="View details of Spacious Family Home">View Details</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Property Listing Section -->
+        <section id="propertyListing" class="property-listing" aria-labelledby="property-listing-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="property-listing-heading">List Your Property</h2>
+                    <p>Reach thousands of potential renters by listing with Rentify</p>
+                </div>
+
+                <div class="listing-container">
+                    <form id="propertyForm" class="listing-form" novalidate>
+                        <div class="form-section">
+                            <h3><i class="fas fa-home" aria-hidden="true"></i> Property Details</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="propertyName">Property Name*</label>
+                                    <input type="text" id="propertyName" name="propertyName"
+                                        placeholder="e.g., Sunny Downtown Apartment" required>
+                                    <span class="error-message" id="propertyName-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="propertyType">Property Type*</label>
+                                    <select id="propertyType" name="propertyType" required>
+                                        <option value="">Select type</option>
+                                        <option value="apartment">Apartment</option>
+                                        <option value="house">House</option>
+                                        <option value="condo">Condo</option>
+                                        <option value="townhouse">Townhouse</option>
+                                    </select>
+                                    <span class="error-message" id="propertyType-error"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Full Address*</label>
+                                <input type="text" id="address" name="address"
+                                    placeholder="Street address, city, state, ZIP" required>
+                                <span class="error-message" id="address-error"></span>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="size">Size (sq ft)*</label>
+                                    <input type="number" id="size" name="size" placeholder="e.g., 1200" min="100"
+                                        required>
+                                    <span class="error-message" id="size-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Beds & Baths*</label>
+                                    <div class="bhk-selector">
+                                        <select id="bedrooms" name="bedrooms" required>
+                                            <option value="">Beds</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4+">4+</option>
+                                        </select>
+                                        <select id="bathrooms" name="bathrooms" required>
+                                            <option value="">Baths</option>
+                                            <option value="1">1</option>
+                                            <option value="1.5">1.5</option>
+                                            <option value="2">2</option>
+                                            <option value="2+">2+</option>
+                                        </select>
+                                    </div>
+                                    <span class="error-message" id="bedrooms-error"></span>
+                                    <span class="error-message" id="bathrooms-error"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-dollar-sign" aria-hidden="true"></i> Pricing & Availability</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="price">Monthly Rent ($)*</label>
+                                    <input type="number" id="price" name="price" placeholder="e.g., 2500" min="100"
+                                        required>
+                                    <span class="error-message" id="price-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="deposit">Security Deposit ($)</label>
+                                    <input type="number" id="deposit" name="deposit" placeholder="e.g., 2500" min="0">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="availableFrom">Available From*</label>
+                                    <input type="date" id="availableFrom" name="availableFrom" required>
+                                    <span class="error-message" id="availableFrom-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="leaseTerm">Lease Term*</label>
+                                    <select id="leaseTerm" name="leaseTerm" required>
+                                        <option value="">Select term</option>
+                                        <option value="month-to-month">Month-to-Month</option>
+                                        <option value="6-months">6 Months</option>
+                                        <option value="12-months">12 Months</option>
+                                        <option value="24-months">24 Months</option>
+                                    </select>
+                                    <span class="error-message" id="leaseTerm-error"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-image" aria-hidden="true"></i> Photos & Description</h3>
+                            <div class="form-group">
+                                <label for="photos">Upload Photos (Max 10)*</label>
+                                <div class="photo-upload">
+                                    <input type="file" id="photos" name="photos" multiple accept="image/*" required>
+                                    <div class="upload-preview">
+                                        <div class="upload-instruction">
+                                            <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+                                            <p>Drag & drop photos here or click to browse</p>
+                                            <span>Minimum 5 photos required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="error-message" id="photos-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Property Description*</label>
+                                <textarea id="description" name="description" rows="5"
+                                    placeholder="Describe your property in detail (features, amenities, neighborhood, etc.)"
+                                    required></textarea>
+                                <span class="error-message" id="description-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><i class="fas fa-check-circle" aria-hidden="true"></i> Amenities</h3>
+                            <div class="amenities-grid">
+                                <label class="amenity-checkbox">
+                                    <input type="checkbox" name="amenities" value="parking">
+                                    <span>Parking</span>
+                                </label>
+                                <label class="amenity-checkbox">
+                                    <input type="checkbox" name="amenities" value="laundry">
+                                    <span>Laundry</span>
+                                </label>
+                                <label class="amenity-checkbox">
+                                    <input type="checkbox" name="amenities" value="gym">
+                                    <span>Gym</span>
+                                </label>
+                                <label class="amenity-checkbox">
+                                    <input type="checkbox" name="amenities" value="pool">
+                                    <span>Pool</span>
+                                </label>
+                                <label class="amenity-checkbox">
+                                    <input type="checkbox" name="amenities" value="furnished">
+                                    <span>Furnished</span>
+                                </label>
+                                <label class="amenity-checkbox">
+                                    <input type="checkbox" name="amenities" value="pet-friendly">
+                                    <span>Pet Friendly</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i> Submit Listing
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Saved Favorites Section -->
+        <section id="savedFavorites" class="saved-favorites" aria-labelledby="saved-favorites-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="saved-favorites-heading">Your Saved Properties</h2>
+                    <p>Your personalized collection of favorite listings</p>
+                </div>
+
+                <div class="saved-container">
+                    <div class="saved-properties">
+                        <!-- Saved Property 1 -->
+                        <article class="saved-item" role="article" aria-labelledby="saved-1-title">
+                            <div class="saved-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0pxdoJW_DChINZ4QTSmF5UENtbpCRZ5nlCQ&s"
+                                    alt="Luxury Downtown Apartment" loading="lazy">
+                            </div>
+                            <div class="saved-details">
+                                <h3 id="saved-1-title">Luxury Downtown Apartment</h3>
+                                <p class="saved-address">
+                                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i> 123 Main St, New York, NY
+                                </p>
+                                <div class="saved-features">
+                                    <span><i class="fas fa-bed" aria-hidden="true"></i> 2 Beds</span>
+                                    <span><i class="fas fa-bath" aria-hidden="true"></i> 2 Baths</span>
+                                    <span><i class="fas fa-ruler-combined" aria-hidden="true"></i> 1200 sqft</span>
+                                </div>
+                                <div class="saved-price">
+                                    $2,500<span>/month</span>
+                                </div>
+                            </div>
+                            <div class="saved-actions">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i> Contact
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-trash-alt" aria-hidden="true"></i> Remove
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Saved Property 2 -->
+                        <article class="saved-item" role="article" aria-labelledby="saved-2-title">
+                            <div class="saved-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfYAeH1dFFuYrb_BCytoxmBKWA2rUrvywUTWJ_QaWI2NaXlPxf0z_-227UjL9yY2GIMr8&usqp=CAU"
+                                    alt="Modern Studio Apartment" loading="lazy">
+                            </div>
+                            <div class="saved-details">
+                                <h3 id="saved-2-title">Modern Studio Apartment</h3>
+                                <p class="saved-address">
+                                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i> 456 Elm St, Brooklyn, NY
+                                </p>
+                                <div class="saved-features">
+                                    <span><i class="fas fa-bed" aria-hidden="true"></i> 1 Bed</span>
+                                    <span><i class="fas fa-bath" aria-hidden="true"></i> 1 Bath</span>
+                                    <span><i class="fas fa-ruler-combined" aria-hidden="true"></i> 700 sqft</span>
+                                </div>
+                                <div class="saved-price">
+                                    $1,800<span>/month</span>
+                                </div>
+                            </div>
+                            <div class="saved-actions">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i> Contact
+                                </button>
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-trash-alt" aria-hidden="true"></i> Remove
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="saved-empty">
+                        <i class="far fa-heart" aria-hidden="true"></i>
+                        <h3>Your saved properties will appear here</h3>
+                        <p>Browse properties and click the heart icon to save your favorites</p>
+                        <a href="properties.html" class="btn btn-primary">
+                            <i class="fas fa-search" aria-hidden="true"></i> Browse Properties
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Section -->
+        <section id="chat" class="chat-section" aria-labelledby="chat-section-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="chat-section-heading">Chat with Property Managers</h2>
+                    <p>Connect directly with landlords and property managers</p>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-sidebar">
+                        <div class="chat-search">
+                            <label for="chat-search" class="sr-only">Search conversations</label>
+                            <input type="text" id="chat-search" placeholder="Search conversations...">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="chat-conversations">
+                            <!-- Conversation 1 -->
+                            <button class="conversation active" aria-label="Chat with Sarah Johnson - 3 new messages">
+                                <div class="conversation-avatar">
+                                    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dperson&psig=AOvVaw1K3BDULjsLmPL0khBZucTT&ust=1749482342500000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIje396P4o0DFQAAAAAdAAAAABAE" alt="Sarah Johnson" loading="lazy">
+                                </div>
+                                <div class="conversation-details">
+                                    <h4>Sarah Johnson</h4>
+                                    <p class="conversation-preview">Hi! When can we schedule a viewing?</p>
+                                    <span class="conversation-time">10:30 AM</span>
+                                </div>
+                                <div class="conversation-badge">3</div>
+                            </button>
+
+                            <!-- Conversation 2 -->
+                            <button class="conversation" aria-label="Chat with Michael Chen">
+                                <div class="conversation-avatar">
+                                    <img src="assets/images/avatar-2.jpg" alt="Michael Chen" loading="lazy">
+                                </div>
+                                <div class="conversation-details">
+                                    <h4>Michael Chen</h4>
+                                    <p class="conversation-preview">The application has been approved</p>
+                                    <span class="conversation-time">Yesterday</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="chat-main">
+                        <div class="chat-header">
+                            <div class="chat-partner">
+                                <div class="chat-avatar">
+                                    <img src="assets/images/avatar-1.jpg" alt="Sarah Johnson" loading="lazy">
+                                </div>
+                                <div class="chat-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Property Manager • Downtown Apartments</p>
+                                </div>
+                            </div>
+                            <div class="chat-actions">
+                                <button class="btn btn-icon" aria-label="Call Sarah Johnson">
+                                    <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                                </button>
+                                <button class="btn btn-icon" aria-label="Video call Sarah Johnson">
+                                    <i class="fas fa-video" aria-hidden="true"></i>
+                                </button>
+                                <button class="btn btn-icon" aria-label="More options">
+                                    <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages" role="log" aria-live="polite">
+                            <div class="message-date">
+                                <span>Today</span>
+                            </div>
+
+                            <div class="message received">
+                                <div class="message-content">
+                                    <p>Hello! Thank you for your interest in our downtown apartment. How can I help you?
+                                    </p>
+                                    <span class="message-time">10:30 AM</span>
+                                </div>
+                            </div>
+
+                            <div class="message sent">
+                                <div class="message-content">
+                                    <p>Hi Sarah! I'm interested in scheduling a viewing for the 2-bedroom unit. What
+                                        availability do you have this week?</p>
+                                    <span class="message-time">10:32 AM</span>
+                                </div>
+                            </div>
+
+                            <div class="message received">
+                                <div class="message-content">
+                                    <p>We have viewings available Wednesday through Friday between 2-6 PM. Would any of
+                                        those times work for you?</p>
+                                    <span class="message-time">10:34 AM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-input">
+                            <div class="input-actions">
+                                <button class="btn btn-icon" aria-label="Attach file">
+                                    <i class="fas fa-paperclip" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <label for="chat-message" class="sr-only">Type your message</label>
+                            <input type="text" id="chat-message" placeholder="Type your message...">
+                            <button class="btn btn-primary" aria-label="Send message">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section
+        <section id="login" class="auth-section" aria-labelledby="login-heading">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-image">
+                        <img src="rentify2.png" alt="Modern apartment interior" loading="lazy">
+                    </div>
+                    <div class="auth-form">
+                        <div class="auth-header">
+                            <h2 id="login-heading">Welcome Back</h2>
+                            <p>Login to access your Rentify account</p>
+                        </div>
+
+                        <form id="loginForm" class="auth-form-content">
+                            <div class="form-group">
+                                <label for="email">Email Address*</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password*</label>
+                                <input type="password" id="password" name="password" placeholder="Enter your password"
+                                    required>
+                                <i class="fas fa-lock" aria-hidden="true"></i>
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <i class="fas fa-eye" aria-hidden="true"></i>
+                                </button>
+                                <span class="error-message" id="password-error"></span>
+                            </div>
+
+                            <div class="form-options">
+                                <label class="checkbox-container">
+                                    Remember me
+                                    <input type="checkbox" name="remember">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <a href="#forgot-password" class="forgot-password">Forgot password?</a>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Login
+                            </button>
+
+                            <div class="auth-divider">
+                                <span>or continue with</span>
+                            </div>
+
+                            <div class="social-login">
+                                <button type="button" class="btn btn-outline btn-social">
+                                    <i class="fab fa-google" aria-hidden="true"></i> Google
+                                </button>
+                                <button type="button" class="btn btn-outline btn-social">
+                                    <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
+                                </button>
+                            </div>
+
+                            <div class="auth-footer">
+                                Don't have an account? <a href="#register">Sign up</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Call to Action -->
+        <section class="cta-section" aria-labelledby="cta-heading">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 id="cta-heading">Ready to Find Your Dream Home?</h2>
+                    <p>Join thousands of happy renters who found their perfect home with Rentify</p>
+                    <div class="cta-buttons">
+                        <a href="properties.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-search" aria-hidden="true"></i> Browse Properties
+                        </a>
+                        <a href="#propertyListing" class="btn btn-outline btn-lg">
+                            <i class="fas fa-home" aria-hidden="true"></i> List Your Property
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <img src="rentify21.png" alt="Rentify Logo">
+                    </div>
+                    <p class="footer-about-text">
+                        Rentify connects renters with verified property listings, making the rental process simple,
+                        transparent, and stress-free.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>For Renters</h4>
+                    <ul class="footer-links">
+                        <li><a href="properties.html">Browse Properties</a></li>
+                        <li><a href="renter-resources.html">Renter Resources</a></li>
+                        <li><a href="neighborhood-guides.html">Neighborhood Guides</a></li>
+                        <li><a href="faq.html">Renter FAQ</a></li>
+                        <li><a href="protection.html">Renter Protection</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>For Landlords</h4>
+                    <ul class="footer-links">
+                        <li><a href="list-property.html">List Your Property</a></li>
+                        <li><a href="property-management.html">Property Management</a></li>
+                        <li><a href="landlord-resources.html">Landlord Resources</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="landlord-faq.html">Landlord FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="gdpr.html">GDPR</a></li>
+                        <li><a href="accessibility.html">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2023</span> Rentify. All rights reserved.</p>
+                <div class="footer-apps">
+                    <a href="#" class="app-badge">
+                        <i class="fab fa-apple" aria-hidden="true"></i>
+                        <div>
+                            <span>Download on the</span>
+                            <strong>App Store</strong>
+                        </div>
+                    </a>
+                    <a href="#" class="app-badge">
+                        <i class="fab fa-google-play" aria-hidden="true"></i>
+                        <div>
+                            <span>Get it on</span>
+                            <strong>Google Play</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" aria-hidden="true">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/vendor/lazysizes.min.js"></script>
+    <script src="assets/js/main.min.js" defer></script>
+
+    <!-- Google Analytics -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview');
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Rentify - Find Your Perfect Home</title>
+  <meta name="description" content="Join Rentify to discover thousands of beautiful rental properties">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Modern Design System */
+    :root {
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-light: #93c5fd;
+      --primary-lighter: #dbeafe;
+      --primary-transparent: rgba(59, 130, 246, 0.1);
+      --secondary: #60a5fa;
+      --accent: #38bdf8;
+      --dark: #1e293b;
+      --medium: #64748b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --border: rgba(203, 213, 225, 0.5);
+      --success: #10b981;
+      --error: #ef4444;
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+      --shadow-lg: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+      --shadow-xl: 0 20px 50px -12px rgba(59, 130, 246, 0.25);
+      --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+      --glass-blur: blur(12px);
+
+      --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 18px;
+      --radius-2xl: 24px;
+    }
+
+    /* Base Reset */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      background-image:
+        radial-gradient(at 80% 0%, var(--primary-transparent) 0%, transparent 50%),
+        radial-gradient(at 0% 50%, var(--primary-transparent) 0%, transparent 50%);
+    }
+
+    /* Main Container */
+    .registration-container {
+      display: flex;
+      max-width: 1200px;
+      width: 100%;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      animation: fadeIn var(--transition-slow) both;
+      animation-delay: 100ms;
+    }
+
+    /* Hero Section */
+    .registration-hero {
+      flex: 1;
+      background: linear-gradient(135deg, var(--white), var(--white));
+      color: var(--white);
+      padding: 3rem;
+      display: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 700px;
+      height: 859px;
+      background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      /* opacity: 0.15; */
+      z-index: 0;
+      border-radius: 25px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .logo i {
+      font-size: 2rem;
+      color: var(--white);
+      transition: transform var(--transition-fast);
+    }
+
+    .logo:hover i {
+      transform: rotate(-15deg) scale(1.1);
+    }
+
+    .registration-hero h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .registration-hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .benefits-list {
+      list-style: none;
+      margin-top: auto;
+      margin-bottom: 2rem;
+    }
+
+    .benefits-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      animation: fadeIn var(--transition-slow) both;
+    }
+
+    .benefits-list li:nth-child(1) {
+      animation-delay: 400ms;
+    }
+
+    .benefits-list li:nth-child(2) {
+      animation-delay: 600ms;
+    }
+
+    .benefits-list li:nth-child(3) {
+      animation-delay: 800ms;
+    }
+
+    .benefits-list i {
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    /* Form Section */
+    .registration-form {
+      flex: 1;
+      padding: 3rem 2rem;
+      max-width: 500px;
+      width: 100%;
+      background: var(--white);
+      position: relative;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      animation: fadeIn var(--transition-normal) both;
+      animation-delay: 200ms;
+    }
+
+    .form-header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .slogan {
+      font-size: 1rem;
+      color: var(--medium);
+      font-weight: 500;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 1.75rem;
+      position: relative;
+      animation: fadeIn var(--transition-normal) both;
+    }
+
+    .form-group:nth-child(1) {
+      animation-delay: 300ms;
+    }
+
+    .form-group:nth-child(2) {
+      animation-delay: 400ms;
+    }
+
+    .form-group:nth-child(3) {
+      animation-delay: 500ms;
+    }
+
+    .form-group:nth-child(4) {
+      animation-delay: 600ms;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--medium);
+      margin-bottom: 0.75rem;
+      transition: all var(--transition-fast);
+    }
+
+    .input-wrapper {
+      position: relative;
+      transition: all var(--transition-normal);
+    }
+
+    .input-wrapper::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      transition: width var(--transition-normal);
+      z-index: 2;
+    }
+
+    .input-wrapper:focus-within::before {
+      width: 100%;
+    }
+
+    .input-wrapper i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--medium);
+      font-size: 1rem;
+      transition: all var(--transition-fast);
+    }
+
+    .input-wrapper:focus-within i {
+      color: var(--primary);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      padding: 0.875rem 1rem 0.875rem 2.5rem;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-inner);
+    }
+
+    .input-wrapper input:focus {
+      outline: none;
+      border-color: transparent;
+      box-shadow: 0 0 0 3px var(--primary-transparent);
+      padding-left: 2.75rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      border: none;
+      width: 100%;
+    }
+
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      z-index: -1;
+      transition: all var(--transition-normal);
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--primary-hover), var(--primary));
+      z-index: -1;
+      opacity: 0;
+      transition: all var(--transition-normal);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 0;
+    }
+
+    .btn-primary:hover::after {
+      opacity: 1;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-google {
+      background: var(--white);
+      color: var(--dark);
+      border: 1px solid var(--border);
+    }
+
+    .btn-google:hover {
+      background: var(--light);
+    }
+
+    .btn-facebook {
+      background: #1877f2;
+      color: var(--white);
+    }
+
+    .btn-facebook:hover {
+      background: #166fe5;
+    }
+
+    /* Social Login */
+    .social-login {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .social-login p {
+      color: var(--medium);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .social-login p::before,
+    .social-login p::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 30%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .social-login p::before {
+      left: 0;
+    }
+
+    .social-login p::after {
+      right: 0;
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-buttons .btn {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-buttons .btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(to bottom right,
+          rgba(255, 255, 255, 0.3) 0%,
+          rgba(255, 255, 255, 0) 60%);
+      transform: rotate(30deg);
+      transition: all var(--transition-slow);
+    }
+
+    .social-buttons .btn:hover::after {
+      transform: translateY(100%) rotate(30deg);
+    }
+
+    /* Login Link */
+    .login-link {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--medium);
+    }
+
+    .login-link a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .login-link a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      .registration-hero {
+        display: flex;
+      }
+
+      .registration-form {
+        padding: 3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .registration-container {
+        border-radius: var(--radius-xl);
+      }
+
+      .form-header h1 {
+        font-size: 1.5rem;
+      }
+
+      .registration-form {
+        padding: 2rem 1.5rem;
+      }
+
+      .social-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="registration-container">
+    <div class="registration-hero">
+      <div class="hero-content">
+        <div class="logo">
+          <i class="fas fa-home"></i>
+          <span>Rentify</span>
+        </div>
+        <h2>Find Your Dream Home</h2>
+        <p>Join thousands of happy renters who found their perfect space with us</p>
+        <ul class="benefits-list">
+          <li><i class="fas fa-check-circle"></i> 10,000+ verified properties</li>
+          <li><i class="fas fa-check-circle"></i> No hidden fees</li>
+          <li><i class="fas fa-check-circle"></i> 24/7 customer support</li>
+        </ul>
+      </div>
+      <div class="hero-background"></div>
+    </div>
+
+    <div class="registration-form">
+      <div class="form-header">
+        <h1>Create Account</h1>
+        <p class="slogan">Welcome to Rentify</p>
+      </div>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" placeholder="Enter your username" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Create a password" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <div class="input-wrapper">
+            <i class="fas fa-phone"></i>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-user-plus"></i> Create Account
+        </button>
+
+        <div class="social-login">
+          <p>Or sign up with</p>
+          <div class="social-buttons">
+            <button type="button" class="btn btn-google">
+              <i class="fab fa-google"></i> Google
+            </button>
+            <button type="button" class="btn btn-facebook">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="login-link">
+        Already have an account? <a href="login.html">Sign in</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

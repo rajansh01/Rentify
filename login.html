@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Rentify - Find Your Perfect Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Add your CSS styles here */
+    /* Modern Design System */
+    :root {
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-light: #93c5fd;
+      --primary-lighter: #dbeafe;
+      --primary-transparent: rgba(59, 130, 246, 0.1);
+      --secondary: #60a5fa;
+      --accent: #38bdf8;
+      --dark: #1e293b;
+      --medium: #64748b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --border: rgba(203, 213, 225, 0.5);
+      --success: #10b981;
+      --error: #ef4444;
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+      --shadow-lg: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+      --shadow-xl: 0 20px 50px -12px rgba(59, 130, 246, 0.25);
+      --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 18px;
+      --radius-2xl: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      background-image:
+        radial-gradient(at 80% 0%, var(--primary-transparent) 0%, transparent 50%),
+        radial-gradient(at 0% 50%, var(--primary-transparent) 0%, transparent 50%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 1rem;
+    }
+
+    /* Auth Section */
+    .auth-section {
+      width: 100%;
+      margin-left: 120px;
+    }
+
+    .auth-container {
+      display: flex;
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      min-height: 600px;
+    }
+
+    .auth-image {
+      flex: 1;
+      display: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .auth-image::after {
+      content: '';
+      position: absolute;
+      /* inset: 0; */
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.7), rgba(56, 189, 248, 0.7));
+    }
+
+    .auth-form {
+      flex: 1;
+      padding: 3rem 2rem;
+      max-width: 500px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .auth-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .auth-header p {
+      font-size: 1rem;
+      color: var(--medium);
+    }
+
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--medium);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.875rem 1rem 0.875rem 2.5rem;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-inner);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-transparent);
+    }
+
+    .form-group i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--medium);
+      font-size: 1rem;
+      padding-top: 10px;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--medium);
+      cursor: pointer;
+      padding: 0.5rem;
+      padding-right: 20px;
+    }
+
+    .error-message {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--error);
+      margin-top: 0.25rem;
+      height: 1rem;
+    }
+
+    /* Form Options */
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: var(--medium);
+      user-select: none;
+    }
+
+    .checkbox-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    .checkmark {
+      position: relative;
+      height: 1rem;
+      width: 1rem;
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-right: 0.5rem;
+    }
+
+    .checkbox-container input:checked~.checkmark {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    .checkbox-container input:checked~.checkmark:after {
+      display: block;
+    }
+
+    .checkbox-container .checkmark:after {
+      left: 0.25rem;
+      top: 0.1rem;
+      width: 0.25rem;
+      height: 0.5rem;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .forgot-password {
+      font-size: 0.875rem;
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .forgot-password:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--primary-hover), var(--primary));
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--dark);
+    }
+
+    .btn-outline:hover {
+      background: var(--light);
+    }
+
+    .btn-social {
+      flex: 1;
+    }
+
+    /* Divider */
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0;
+      color: var(--medium);
+      font-size: 0.875rem;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .auth-divider::before {
+      margin-right: 1rem;
+    }
+
+    .auth-divider::after {
+      margin-left: 1rem;
+    }
+
+    /* Social Login */
+    .social-login {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Auth Footer */
+    .auth-footer {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--medium);
+    }
+
+    .auth-footer a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .auth-footer a:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      .auth-image {
+        display: block;
+      }
+
+      .auth-form {
+        padding: 3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .auth-container {
+        border-radius: var(--radius-xl);
+      }
+
+      .auth-header h2 {
+        font-size: 1.5rem;
+      }
+
+      .auth-form {
+        padding: 2rem 1.5rem;
+      }
+
+      .social-login {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Login Section -->
+  <section id="login" class="auth-section" aria-labelledby="login-heading">
+    <div class="container">
+      <div class="auth-container">
+        <div class="auth-image">
+          <img src="rentify2.png" alt="Modern apartment interior" loading="lazy">
+        </div>
+        <div class="auth-form">
+          <div class="auth-header">
+            <h2 id="login-heading">Welcome Back</h2>
+            <p>Login to access your Rentify account</p>
+          </div>
+
+          <form id="loginForm" class="auth-form-content">
+            <div class="form-group">
+              <label for="email">Email Address*</label>
+              <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span class="error-message" id="email-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password*</label>
+              <input type="password" id="password" name="password" placeholder="Enter your password" required>
+              <i class="fas fa-lock" aria-hidden="true"></i>
+              <button type="button" class="password-toggle" aria-label="Show password">
+                <i class="fas fa-eye" aria-hidden="true"></i>
+              </button>
+              <span class="error-message" id="password-error"></span>
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-container">
+                Remember me
+                <input type="checkbox" name="remember">
+                <span class="checkmark"></span>
+              </label>
+              <a href="#forgot-password" class="forgot-password">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Login
+            </button>
+
+            <div class="auth-divider">
+              <span>or continue with</span>
+            </div>
+
+            <div class="social-login">
+              <button type="button" class="btn btn-outline btn-social">
+                <i class="fab fa-google" aria-hidden="true"></i> Google
+              </button>
+              <button type="button" class="btn btn-outline btn-social">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
+              </button>
+            </div>
+
+            <div class="auth-footer">
+              Don't have an account? <a href="#register">Sign up</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Password toggle functionality
+    document.querySelector('.password-toggle').addEventListener('click', function () {
+      const passwordInput = document.getElementById('password');
+      const icon = this.querySelector('i');
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.replace('fa-eye', 'fa-eye-slash');
+        this.setAttribute('aria-label', 'Hide password');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.replace('fa-eye-slash', 'fa-eye');
+        this.setAttribute('aria-label', 'Show password');
+      }
+    });
+
+    // Form validation would go here
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Add your form validation logic here
+    });
+  </script>
+</body>
+
+</html>
